@@ -1,0 +1,18 @@
+Usage:
+GMP=path/to/gmp ABI=all ./make-mpfr.sh
+
+or you can specify just one platform:
+GMP=path/to/gmp ABI=x86_64 ./make-mpfr.sh
+
+Possible ABIs: x86, x86_64, arm64-v8a, armeavi-v7a.
+
+GMP should be a path to the gmp.h header and libgmp.so shared library.
+You can instead use GMPH for the header and GMPLIB for the shared library.
+The header will be searched for in $GMPH, $GMPH/headers and $GMPH/headers/$ABI.
+The shared library will be searched for in $GMPH, $GMPH/lib and $GMPH/lib/$ABI.
+
+You can point GMP to the root of the android-build-libgmp project.
+
+The compiled shared library is copied to the lib/$ABI/ folder.
+Headers are copied to the headers/ folder.
+Tests are copied to the tests/$ABI/ folder (in theory they could be run later on a target device).
