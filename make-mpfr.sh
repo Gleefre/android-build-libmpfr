@@ -26,6 +26,11 @@ if [ -z $ABI ]; then
     echo $ABI
 fi
 case $ABI in
+    arm64 | aarch64) ABI=arm64-v8a ;;
+    arm) ABI=armeabi-v7a ;;
+    x86-64) ABI=x86_64 ;;
+esac
+case $ABI in
     arm64-v8a) TARGET=aarch64-linux-android ;;
     armeabi-v7a) TARGET=armv7a-linux-androideabi ;;
     x86) TARGET=i686-linux-android ;;
